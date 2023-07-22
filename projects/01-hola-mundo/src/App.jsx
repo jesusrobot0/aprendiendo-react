@@ -18,6 +18,7 @@ export function App() {
       isFollowing: false,
     }
   ]
+  
   return (
     <div className="App">
       {users.map(({userName, name, isFollowing}) => (
