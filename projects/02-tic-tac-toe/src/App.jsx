@@ -6,15 +6,15 @@ import { checkWinnerFrom, checkEndGame } from './logic/board'
 import { saveGameToStorage, resetGameStorage } from './logic/storage'
 import { TURNS } from './constants'
 
-function App() {
+function App () {
   const initialBoard = Array(9).fill(null)
   const [board, setBoard] = useState(() => {
-    const boardFromStorage = localStorage.getItem('board')
+    const boardFromStorage = window.localStorage.getItem('board')
     if (boardFromStorage) return JSON.parse(boardFromStorage)
     return initialBoard
   })
   const [turn, setTurn] = useState(() => {
-    const turnFromStorage = localStorage.getItem('turn')
+    const turnFromStorage = window.localStorage.getItem('turn')
     return turnFromStorage ?? TURNS.X
   })
   // null = no hay ganador ; false = empate ; X = X ganador : O = O ganador
@@ -50,18 +50,18 @@ function App() {
   }
 
   return (
-    <main className="board">
+    <main className='board'>
       <h1>Tic Tac Toe</h1>
       <button onClick={resetGame}>Empezar de nuevo</button>
 
-      <section className="game">
+      <section className='game'>
         {board.map((_, index) => (
           <Square key={index} index={index} onUpdateBoard={updateBoard}>
             {board[index]}
           </Square>
         ))}
       </section>
-      <section className="turn">
+      <section className='turn'>
         <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
         <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
       </section>

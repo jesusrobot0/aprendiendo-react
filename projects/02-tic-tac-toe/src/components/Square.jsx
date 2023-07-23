@@ -18,5 +18,5 @@ Square.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number,
   isSelected: PropTypes.bool,
-  onUpdateBoard: PropTypes.func,
+  onUpdateBoard: PropTypes.func
 }

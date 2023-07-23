@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import { Square } from './Square'
 
-export function WinnerModal({ winner, onResetGame }) {
+export function WinnerModal ({ winner, onResetGame }) {
   if (winner === null) return null
   return (
-    <section className="winner">
-      <div className="text">
+    <section className='winner'>
+      <div className='text'>
         <h2>{winner === false ? 'Empate' : 'Gano:'}</h2>
         <header>{winner && <Square>{winner}</Square>}</header>
         <footer>
@@ -18,5 +18,5 @@ export function WinnerModal({ winner, onResetGame }) {
 
 WinnerModal.propTypes = {
   winner: PropTypes.any,
-  onResetGame: PropTypes.func.isRequired,
+  onResetGame: PropTypes.func.isRequired
 }
