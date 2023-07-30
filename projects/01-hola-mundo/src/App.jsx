@@ -21,6 +21,7 @@ export function App() {
   
   return (
     <div className="App">
+      <h2 style={{color: '#fff', margin: '0 0 1rem'}}>A quién seguir</h2>
       {users.map(({userName, name, isFollowing}) => (
         <TwitterFollowCard 
           key={userName} 
