@@ -70,3 +70,79 @@ Cosas a tener en cuenta con JSX
 - Se pueden **incrustar expresiones** de JS dentro de JSX envolviéndolas entre corchetes `{}`.
 - Para definir un atributo de más de una palabra se utiliza la nomenclatura camelCase, por ejemplo `dataId=””`.
 - JSX evita la inyección de código al no renderizar código que venga dentro de un texto.
+
+## Crear una aplicación de React con Vite
+
+```bash
+pnpm create vite
+```
+
+## Componentes
+
+- Los componentes de React son funciones re utilizables que retornan un elemento (que puede envolver a otros elementos) y que puede tener estado o no.
+
+    ```jsx
+        const Button = ({text}) => {
+            return (
+                <button>{text}</button>
+            )
+        } 
+        
+        <React.Fragment>
+                <Button text="Button 1" />
+                <Button text="Button 2" />
+                <Button text="Button 3" />
+        </React.Fragment>
+    ```
+
+- Los componentes deben nombrarse con la nomenclatura `PascalCase` esto para que React distinga que va a renderizar un componente y no un elemento HTML.
+- Por norma general cada componente debe de ir en un archivo independiente nombrado de igual manera .
+
+### Diferencias entre componentes y elementos
+
+- Un componente es una función que al ejecutarlo devuelve elementos (factoría de elementos)
+- Los elementos son lo que renderiza React
+
+## Props
+
+Los props son igual que los parámetros de las funciones de vanilla JS y son la base de la reutilización de Componentes en React.
+
+- Podemos pasar como props:
+  - strings
+  - números
+  - booleanos
+  - arrays
+  - funciones
+  - objetos
+  - elementos
+  - Hay un prop especial llamado `children` que permite pasar una gran cantidad de elementos a un componente como si fueran (y lo son) los hijos del componente.
+
+Puedes establecer valores por defecto a las props para que en el caso de que no se le envié al componente tenga por lo menos un valor que mostrar.
+
+```jsx
+function MyComponent({name = 'Unknown'}) => {
+    return <h1>Hello, {name}</h1>
+}
+```
+
+> 💡 Trata a los props como si fueran inmutables para no modificar la fuente de la verdad.
+
+## El estado del componente WIP 🏗️
+
+- La forma de proveer estado a un componente es utilizando el hook useState()
+
+## Estilos en React
+
+Hay muchas formas de agregar estilos en React
+
+- hay 3 formas nativas:
+  - Estilos por clase (la forma de hacerlo de toda la vida)
+  - Estilos en línea `styles={{fontSize: ‘10px’}}`
+  - Módulos CSS
+
+- Pero hay muchísimas más que no lo son:
+  - Tailwind ✨
+  - Styled Componentes
+  - Librerías de componentes UI
+
+> 💡 Una buena práctica para agregar separación entre componentes es estilando la separación en el contenedor y no en el componente individual, por que el día de mañana no sabes donde vas a utilizar ese componente y puede que no ocupes esa separación.
