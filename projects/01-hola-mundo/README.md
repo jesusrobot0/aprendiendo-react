@@ -127,7 +127,7 @@ function MyComponent({name = 'Unknown'}) => {
 
 > 💡 Trata a los props como si fueran inmutables para no modificar la fuente de la verdad.
 
-## El estado del componente WIP 🏗️
+## El estado del componente - WIP 🏗️
 
 - La forma de proveer estado a un componente es utilizando el hook useState()
 
