@@ -116,20 +116,71 @@ Los props son igual que los parámetros de las funciones de vanilla JS y son la 
   - objetos
   - elementos
   - Hay un prop especial llamado `children` que permite pasar una gran cantidad de elementos a un componente como si fueran (y lo son) los hijos del componente.
+- Puedes establecer valores por defecto a las props para que en el caso de que no se le envié al componente tenga por lo menos un valor que mostrar.
 
-Puedes establecer valores por defecto a las props para que en el caso de que no se le envié al componente tenga por lo menos un valor que mostrar.
+  ```jsx
+  function MyComponent({name = 'Unknown'}) => {
+      return <h1>Hello, {name}</h1>
+  }
+  ```
 
-```jsx
-function MyComponent({name = 'Unknown'}) => {
-    return <h1>Hello, {name}</h1>
-}
-```
+- Solo se pueden pasar props de un componente padre a un componente hijo pero al pasar un callback podemos conseguir mandar información del hijo al padre.
 
 > 💡 Trata a los props como si fueran inmutables para no modificar la fuente de la verdad.
 
 ## El estado del componente - WIP 🏗️
 
-- La forma de proveer estado a un componente es utilizando el hook useState()
+- La forma de proveer estado a un componente es utilizando el **hook** `useState()`
+  
+  ```jsx
+  const [state, setState] = useState('')
+  ```
+  
+  La variable **state** devuelve el valor de dicho state y la función **setState** sirve para modificar el valor del state, hay que hacer siempre actualizaciones con dicha función para que React se de cuenta de que hubo un cambio y vuelva a renderizar el componente.
+
+  El valor del espacio vacío `''` en la función `useState` es el **valor por defecto del state** y se recomienda colocar uno que que tenga relación con el dato que se espera.
+- Puedes inicializar un state con una prop pero no puedes esperar que el state cambie cada vez que la prop lo haga (y en consecuencia se reflejen los cambios en el DOM) por el estate solo se inicializa una vez además esto se considera por lo general una mala práctica.
+- Cada vez que el estado cambia, react re renderiza el componente para mostrar los cambios en la interfaz de usuario, pero haciendo solo las actualizaciones mínimas en el **DOM** para conseguirlo, para lograr esto utiliza algo que tiene React llamado **Virtual DOM**.
+- Otra forma en la que un componente puede re renderizarse es cuando un componente padre se vuelve a renderizar **propagando los cambios** hacia los hijos.
+
+  ```jsx
+    function MyComponent() {
+      const [name, setName] = useState('Unknown')
+
+      return (
+        <Greeting name={name}/>
+
+        <Greeting name="midudev"/>
+
+        <button onClick={() => setName('Jesús')}></button>
+      )
+
+    }
+  ```
+
+  Al hacer un cambio en el state de un componente, este re renderiza a todos sus componentes hijos, incluso los que no están relacionados con el state que cambio, aunque no hacen ningún cambio en UI pero la función del componente si se ejecuta.
+
+### Renderizado condicional
+
+El renderizado condicional es como su nombre ya lo indica la forma de renderizar una cosa u otra en base a una condición. El renderizado condicional es la clave de la reactividad de React pues muestra cambios en el UI en base a los cambios de estado de los componentes.
+
+Se usa para renderizar un componente u otro o aplicar un estilo u otro.
+
+```jsx
+function MyComponent() {
+  const [isLogged, setIsLogged] = useState(false)
+
+  const handleLogin = () => setIsLogged(!isLogged)
+
+  return (
+    {
+      isLogged 
+        ? <button onClick={handleLogin}>logout</button>
+        : <button onClick={handleLogin}>login</button>
+    }
+  )
+}
+```
 
 ## Estilos en React
 
