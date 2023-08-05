@@ -128,7 +128,7 @@ Los props son igual que los parámetros de las funciones de vanilla JS y son la 
 
 > 💡 Trata a los props como si fueran inmutables para no modificar la fuente de la verdad.
 
-## El estado del componente - WIP 🏗️
+## El estado del componente
 
 - La forma de proveer estado a un componente es utilizando el **hook** `useState()`
   
