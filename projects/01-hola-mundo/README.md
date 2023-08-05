@@ -197,3 +197,19 @@ Hay muchas formas de agregar estilos en React
   - Librerías de componentes UI
 
 > 💡 Una buena práctica para agregar separación entre componentes es estilando la separación en el contenedor y no en el componente individual, por que el día de mañana no sabes donde vas a utilizar ese componente y puede que no ocupes esa separación.
+
+## Renderizado de Listas
+
+Va a haber ocasiones en las que sea necesario renderizar una lista de componentes a partir de los resultados obtenidos de un llamado a una API.
+
+```jsx
+return (
+  {usersAPI.map(({name, id}) => {
+    <User key={id} name={name}/>
+  })}
+)
+```
+
+La prop `key` es muy importante para React ya que con ella va a poder identificar los elementos unos de otros y asi poder aplicar los cambios requeridos solo en los componentes que lo requieran.
+
+El key debe ser único pero no aleatorio es un error usar por ejemplo `Math.random()` en el key cuando se este renderizando la lista por cada vez que se renderiza el componente va a identificarlos como nuevos y los va a volver a renderizar la mejor opción en este caso es un id que venga directamente de la base de datos o que por lo menos sea creado previamente.
