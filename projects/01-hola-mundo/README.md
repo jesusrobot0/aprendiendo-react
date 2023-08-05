@@ -212,4 +212,6 @@ return (
 
 La prop `key` es muy importante para React ya que con ella va a poder identificar los elementos unos de otros y asi poder aplicar los cambios requeridos solo en los componentes que lo requieran.
 
-El key debe ser único pero no aleatorio es un error usar por ejemplo `Math.random()` en el key cuando se este renderizando la lista por cada vez que se renderiza el componente va a identificarlos como nuevos y los va a volver a renderizar la mejor opción en este caso es un id que venga directamente de la base de datos o que por lo menos sea creado previamente.
+El key debe ser único pero no aleatorio es un error usar por ejemplo `Math.random()` en el key cuando se este renderizando la lista por cada vez que se renderiza el componente va a identificarlos como nuevos y los va a volver a renderizar.
+
+> 💡 La mejor opción para usar como **key** es un id que venga directamente de la base de datos o que por lo menos sea creado previamente.
