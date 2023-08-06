@@ -1,8 +1,57 @@
-# React + Vite
+# Clase 2: Crea un videojuego y una aplicación para aprender useState y useEffect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Enviar datos de un componente hijo a un componente padre
 
-Currently, two official plugins are available:
+La forma de hacerlo es pasar como **prop**  al componente hijo una función que reciba como parámetro el valor que queremos obtener el componente padre
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```jsx
+import { useState } from "react";
+
+function Option({ id, onSelectOption }) {
+  return <button onClick={() => onSelectOption(id)}>Option {id}</button>;
+}
+
+export default function App() {
+  const [optionSelected, setOptionSelected] = useState("option not selected");
+
+  const selectOption = (id) => {
+    setOptionSelected(id);
+  };
+
+  return (
+    <>
+      <p>the selected option is: {optionSelected}</p>
+      <Option id={1} onSelectOption={selectOption} />
+      <Option id={2} onSelectOption={selectOption} />
+      <Option id={3} onSelectOption={selectOption} />
+    </>
+  );
+}
+
+```
+
+## El state es inmutable
+
+Siempre que vayas a hacer una actualización en el **state** aparte de usar exclusivamente la función **set**, debes de asegurarte que los datos que envías al state siempre sean nuevos, si vas a modificar un objeto o un array envía siempre uno nuevo con las modificaciones que necesites. Esto para evitar errores de renderizado.
+
+### Copia de un array
+
+```jsx
+const newArray = [...state]
+
+setState(newArray)
+```
+
+### Copia de un objeto
+
+```jsx
+const newObject = {...state}
+
+setState(newObject)
+```
+
+> Para hacer una copia de un objeto o array puedes usar el spread operator `...`
+
+## Las actualizaciones en el state son asíncronas
+
+Por lo cual no puedes fiarte de que el valor del state sea el más reciente, por lo que si estas haciendo algún calculo con el state mejor hazlo con el state nuevo que haz creado para actualizarlo.
