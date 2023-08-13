@@ -1,6 +1,6 @@
 import { WINNER_COMBOS } from '../constants'
 export const checkWinnerFrom = (boardToCheck) => {
-  // Revisa las combinaciones ganadoreas para ver si x u o ganó
+  // Revisa las combinaciones ganadoras para ver si x u o ganó
   for (const combo of WINNER_COMBOS) {
     const [a, b, c] = combo
 
@@ -16,6 +16,6 @@ export const checkWinnerFrom = (boardToCheck) => {
 }
 
 export const checkEndGame = (boardToCheck) => {
-  // Revisa que no queden espacios vacios en el tablero
+  // Revisa que no queden espacios vacíos en el tablero
   return boardToCheck.every((square) => square !== null)
 }
