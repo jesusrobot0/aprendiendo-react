@@ -54,7 +54,7 @@ setState(newObject)
 
 > Para hacer una copia de un objeto o array puedes usar el spread operator `...`
 
-## Las actualizaciones en el state son asíncronas (¿si 🤔?)
+## Las actualizaciones en el state son asíncronas
 
 Por lo cual no puedes fiarte de que el valor del state sea el más reciente, por lo que si estas haciendo algún calculo con el state mejor hazlo con la copia del state que haz creado para actualizarlo.
 
