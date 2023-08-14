@@ -1,8 +1,39 @@
-# React + Vite
+# Hook useEffect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+El `useEffect` es probablemente después de `useState` el segundo **hook** mas importante de React.
 
-Currently, two official plugins are available:
+## ¿Qué hace useEffect?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Permite ejecutar código arbitrario cuando el componente se monta en el DOM, cuando se desmonta y cada vez que cambian las dependencias que nosotros le digamos.
+
+```jsx
+useEffect(() => {
+  // Código a ejecutar
+}, [/*Lista de dependencias*/])
+```
+
+## ¿Cuando se ejecuta?
+
+Si no se le pasa la lista de dependencias, se va a ejecutar cada vez que se renderiza el componente
+
+```jsx
+useEffect(() => {
+  console.log('Me ejecuto cada vez que se renderiza el componente')
+})
+```
+
+Si se le pasa la lista de dependencias vacía, se va a ejecutar solo cuando se renderiza una vez el componente
+
+```jsx
+useEffect(() => {
+  console.log('Me ejecuto solo una vez')
+}, [])
+```
+
+Si se le pasa una o varia dependencias, se va a ejecutar cada vez que esta o estas cambien
+
+```jsx
+useEffect(() => {
+  console.log('Me ejecuto cada vez que el state cambie')
+}, [state])
+```
