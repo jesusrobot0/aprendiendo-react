@@ -37,3 +37,29 @@ useEffect(() => {
   console.log('Me ejecuto cada vez que el state cambie')
 }, [state])
 ```
+
+## Función cleanup
+
+Dentro de la función que ejecuta `useEffect` podemos retornar una función para limpiar el efecto, esta función también llamada **cleanUp** se ejecuta antes de que se desmonte el componente y cada vez que cambien las dependencias antes de ejecutar el evento de nuevo.
+
+Es importante limpiar los efectos secundarios por que de no hacerlo podemos tener problemas graves como:
+
+- Ralentización de la aplicación.
+- Fallos en la computadora cliente
+
+```jsx
+useEffect(() => {
+  console.log('Me ejecuto cada vez que el state cambie')
+
+  return () => {
+    console.log('Me ejecuto cada vez que el state cambie y al desmontar el componente')
+  }
+}, [state])
+```
+
+Lo más seguro es que queramos limpiar un efecto secundario en los siguientes casos:
+
+- Una solicitud de llamada a un API
+- Al usar timers como `setTimeout` o `setInterval`
+- Limpieza de `eventListeners`
+- Limpieza de sockets web
