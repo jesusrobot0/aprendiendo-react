@@ -28,7 +28,7 @@ function App() {
   // [enabled] -> se ejecuta cuando cambia enabled y cuando se monta el componente
   // undefined -> se ejecuta cada vez que se renderiza el componente
   
-  // change body clasname
+  // change body class name
   useEffect(() => {
     document.body.classList.toggle('no-cursor', enabled)
 
