@@ -122,3 +122,9 @@ useEffect(() => {
 ```
 
 > 💡 setea al state la mínima información y luego calcula lo que quieres renderizar
+
+## Custom Hooks
+
+Los custom hooks son funciones que no retornan elementos, sino el resultado de cierta lógica que involucra hooks.
+
+Los hooks se nombran con el prefijo `use` y son una forma de extraer lógica de los componentes para dejarlos limpios y super fácil de entender.
