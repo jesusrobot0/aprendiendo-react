@@ -10,6 +10,32 @@ React es una librería para desarrollar interfaces de usuario.
 - Es de Meta Platforms
 - Nace en 2011 pero hasta 2013 se vuelve de código abierto y se lanza al público en general
 
+## Historia
+
+React nace Facebook a principios de la década de los 2010 de la mano de Jordan Walker con el objetivo de reducir la complejidad que requería desarrollar las complicadas interfaces de los productos de Facebook.
+
+Problemas de entre los que destacaban la confusa gestión de estado y el renderizado ineficiente.
+
+No fue un éxito instantáneo, en sus inicios React tuvo que competir contra otros frameworks desarrollados internamente en Facebook que buscaban solventar el mismo problema, tales como Bolt.js o JS.HTML.
+
+La primera vez que se uso React ya en producción como tal fue en el "Centro Universal de Retroalimentación" que es la sección inferior de las publicaciones de Facebook que permite al usuario reaccionar, comentar y compartir.
+
+No fue hasta la compra de Instagram cuando se uso por primera vez para construir un producto en su totalidad.
+
+Sin embargo el punto decisivo que marcaría el futuro del framework fue cuando se opto por reescribir toda la sección de publicidad de Facebook, la parte más importante por que de ahí la empresa obtenía todo su dinero.
+
+Esto no solo demostró que React era el framework que debían de elegir por sobre encima de todas las demás opciones sino que ayudo a refinar lo y robustecerlo para comenzar a utilizarlo a lo largo de toda la empresa.
+
+Todo estaba yendo bien para React dentro de Facebook y entonces se decide hacerlo Open Source, sin embargo no se obtuvo la recepción que se esperaba ya que la comunidad lo odio desde el primer momento.
+
+En parte por que no gustaba la sintaxis de JSX parecida a XHTML y también por que echaba por la borda mucha de las que se consideraban buenas prácticas a la hora de desarrollar interfaces de usuario y software en general.
+
+La primera persona que le dio una oportunidad fuera de Facebook fue Sophie Alpert quien utilizo React para reescribir parte del código de Khan academy.
+
+La segunda gran empresa que le dio la oportunidad fue Netflix.
+
+Poco después se une al equipo Dan Abramov el primer integrante de la fase 2 de react y uno de los principales propulsores de lo que es React hoy en día.
+
 ## ¿Por qué aprenderlo?
 
 - [Es uno de los frameworks de desarrollo más demandados en el mundo 🔗](https://www.devjobsscanner.com/blog/the-most-demanded-frontend-frameworks-in-2022/)
