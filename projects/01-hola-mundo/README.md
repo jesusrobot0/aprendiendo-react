@@ -102,6 +102,7 @@ Para evitar esta complejidad se utiliza un extensión de la sintaxis de JavaScri
 Para lograr esta transformación de JSX a JS se utilizan herramientas como  [SWC 🔗](https://swc.rs/) o [Babel 🔗](https://babeljs.io/), pero no es necesario aprenderlas ya que los empaquetadores de aplicaciones como [webpack 🔗](https://webpack.js.org/) o [vite 🔗](https://vitejs.dev/) se encargan de configurar las por nosotros.
 
 ![Este código hace lo mismo que el ejemplo anterior.](https://i.postimg.cc/Njch9Myv/Captura-de-pantalla-2023-07-20-a-la-s-11-31-11-a-m.png)
+
 Este código hace lo mismo que el ejemplo anterior.
 
 Cosas que se pueden hacer con JSX
