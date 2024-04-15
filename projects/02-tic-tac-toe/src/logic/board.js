@@ -1,4 +1,5 @@
 import { WINNER_COMBOS } from '../constants'
+
 export const checkWinnerFrom = (boardToCheck) => {
   // Revisa las combinaciones ganadoras para ver si x u o ganó
   for (const combo of WINNER_COMBOS) {
