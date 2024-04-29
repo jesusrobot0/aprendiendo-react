@@ -24,7 +24,7 @@ No fue hasta la compra de Instagram cuando se uso por primera vez para construir
 
 Sin embargo el punto decisivo que marcaría el futuro del framework fue cuando se opto por reescribir toda la sección de publicidad de Facebook, la parte más importante por que de ahí la empresa obtenía todo su dinero.
 
-Esto no solo demostró que React era el framework que debían de elegir por sobre encima de todas las demás opciones sino que ayudo a refinar lo y robustecerlo para comenzar a utilizarlo a lo largo de toda la empresa.
+Esto no solo demostró que React era el framework que debían de elegir por sobre encima de todas las demás opciones sino que ayudo a refinarlo y robustecerlo para comenzar a utilizarlo a lo largo de toda la empresa.
 
 Todo estaba yendo bien para React dentro de Facebook y entonces se decide hacerlo Open Source, sin embargo no se obtuvo la recepción que se esperaba ya que la comunidad lo odio desde el primer momento.
 
@@ -90,7 +90,7 @@ Cosas puntuales sobre este código:
 
   // Esto si ✅
   const app = React.createElement(React.Fragment, null, [button1, button2, button3])
-  root.render()
+  root.render(app)
   ```
 
 ### React con JSX
@@ -99,7 +99,7 @@ El código anterior ya es un poco más declarativo, pero aun sigue siendo compli
 
 Para evitar esta complejidad se utiliza un extensión de la sintaxis de JavaScript llamada [JSX 🔗*](http://facebook.github.io/jsx/#sec-license) que permite describir la interfaz de usuario escribiendo un código muy similar a *HTML*, pero que al final se va a transpilar a un código como el que vimos en el ejemplo anterior ya que *JSX* no es soportado por el navegador.
 
-Para lograr esta transformación de JSX a JS se utilizan herramientas como  [SWC 🔗](https://swc.rs/) o [Babel 🔗](https://babeljs.io/), pero no es necesario aprenderlas ya que los empaquetadores de aplicaciones como [webpack 🔗](https://webpack.js.org/) o [vite 🔗](https://vitejs.dev/) se encargan de configurar las por nosotros.
+Para lograr esta transformación de JSX a JS se utilizan herramientas como  [SWC 🔗](https://swc.rs/) o [Babel 🔗](https://babeljs.io/), pero no es necesario aprenderlas ya que los empaquetadores de aplicaciones como [webpack 🔗](https://webpack.js.org/) o [vite 🔗](https://vitejs.dev/) se encargan de configurarlas por nosotros.
 
 ![Este código hace lo mismo que el ejemplo anterior.](https://i.postimg.cc/Njch9Myv/Captura-de-pantalla-2023-07-20-a-la-s-11-31-11-a-m.png)
 

@@ -1,24 +1,25 @@
 import "./App.css";
 import { TwitterFollowCard } from "./TwitterFollowCard";
-export function App() {
-  const users = [
-    {
-      userName: "midudev",
-      name: "Miguel Ángel Durán",
-      isFollowing: true,
-    },
-    {
-      userName: "lexfridman",
-      name: "Lex Fridman",
-      isFollowing: false,
-    },
-    {
-      userName: "JonErlichman",
-      name: "Jon Erlichman",
-      isFollowing: false,
-    },
-  ];
 
+const users = [
+  {
+    userName: "midudev",
+    name: "Miguel Ángel Durán",
+    isFollowing: true,
+  },
+  {
+    userName: "lexfridman",
+    name: "Lex Fridman",
+    isFollowing: false,
+  },
+  {
+    userName: "JonErlichman",
+    name: "Jon Erlichman",
+    isFollowing: false,
+  },
+];
+
+export function App() {
   return (
     <div className="App">
       <h2 style={{ color: "#fff", margin: "0 0 1rem" }}>A quién seguir</h2>
