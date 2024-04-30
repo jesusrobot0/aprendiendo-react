@@ -1,4 +1,4 @@
-# s
+# Data Fetching
 
 ## Consejos para entrevistas de Junior y Trainee
 
@@ -10,6 +10,7 @@ Normalmente en cualquier prueba técnica para estos tipos de perfil te van a dar
 # Prueba técnica para Juniors y Trainees de React en Live Coding.
 
 ## APIs:
+
 - Facts Random: https://catfact.ninja/fact
 - Imagen random: https://cataas.com/cat/says/hello
 
@@ -42,52 +43,52 @@ Otra cosa muy común en este tipo de entrevistas es que te digan que inicialices
 
 1. Inicializa un proyecto con vite utilizando vanilla JS
 
-    ```bash
-    pnpm create vite
-    ```
+   ```bash
+   pnpm create vite
+   ```
 
 2. Instala el plugin de React para vite
 
-    ```bash
-    pnpm add @vitejs/plugin-react -E 
-    ```
+   ```bash
+   pnpm add @vitejs/plugin-react -E
+   ```
 
 3. Instala react
 
-    ```bash
-    pnpm add react react-dom -E
-    ```
+   ```bash
+   pnpm add react react-dom -E
+   ```
 
 4. Configura vite en el archivo `vite.config.js`
 
-    ```jsx
-    import { defineConfig } from 'vite'
-    import react from '@vitejs/plugin-react'
-    
-    export default defineConfig({
-     plugins: [react()]
-    })
-    ```
+   ```jsx
+   import { defineConfig } from "vite";
+   import react from "@vitejs/plugin-react";
+
+   export default defineConfig({
+     plugins: [react()],
+   });
+   ```
 
 5. Crea el punto de entrada de la app en `main.jsx`
 
-    ```jsx
-    import React from 'react'
-    import { createRoot } from 'react-dom/client'
-    import { App } from './src/App'
-    
-    // Le decimos a React donde queremos renderizar la app
-    const root = createRoot(document.getElementById('app'))
-    
-    // Renderizamos la app
-    root.render(
-     <React.StrictMode>
-      <App />
-     </React.StrictMode>
-    )
-    ```
+   ```jsx
+   import React from "react";
+   import { createRoot } from "react-dom/client";
+   import { App } from "./src/App";
 
-    Es muy importante terminar el archivo de entrada con extensión `.jsx` por que es la forma en que vite soporta la sintaxis de JSX, recuerda cambiar la extensión también en la importación del documento en el `index.html`.
+   // Le decimos a React donde queremos renderizar la app
+   const root = createRoot(document.getElementById("app"));
+
+   // Renderizamos la app
+   root.render(
+     <React.StrictMode>
+       <App />
+     </React.StrictMode>,
+   );
+   ```
+
+   Es muy importante terminar el archivo de entrada con extensión `.jsx` por que es la forma en que vite soporta la sintaxis de JSX, recuerda cambiar la extensión también en la importación del documento en el `index.html`.
 
 ## Instala un linter y un formateador (WIP)
 
@@ -97,10 +98,10 @@ Por lo general siempre va a ser una buena idea hacer la petición dentro de un `
 
 ```jsx
 useEffect(() => {
-  fetch('your_endpoint')
-  .then(response => response.json())
-  .then(data => setState(data))
-}, [])
+  fetch("your_endpoint")
+    .then((response) => response.json())
+    .then((data) => setState(data));
+}, []);
 ```
 
 En este caso se va hacer una petición cada vez que el componente se renderize.
@@ -111,14 +112,14 @@ El efecto no puede ser asíncrono, pero si puedes hacer esto:
 
 ```jsx
 useEffect(() => {
-  async function getData () {
-    const response = await fetch(YOUR_ENDPOINT)
-    const data = await response.json()
+  async function getData() {
+    const response = await fetch(YOUR_ENDPOINT);
+    const data = await response.json();
 
-    setState(data)
+    setState(data);
   }
-  getData()
-}, [])
+  getData();
+}, []);
 ```
 
 > 💡 setea al state la mínima información y luego calcula lo que quieres renderizar
