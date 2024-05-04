@@ -4,9 +4,9 @@ const MINIMUM_CHARACTERS_QUERY = 3;
 const INITIAL_SEARCH = "";
 
 export function useSearch() {
-  const [search, updateSearch] = useState<string>(INITIAL_SEARCH);
+  const [search, updateSearch] = useState(INITIAL_SEARCH);
   const [error, setError] = useState<string | null>(null);
-  const isFirstInput = useRef<boolean>(true); // flag
+  const isFirstInput = useRef<boolean>(true); // flag (valor) persistente entre renders
 
   useEffect(() => {
     // Evitar que esta lógica se aplique en el primer input del user
@@ -25,7 +25,7 @@ export function useSearch() {
       return;
     }
 
-    if (search?.length! < MINIMUM_CHARACTERS_QUERY) {
+    if (search?.length < MINIMUM_CHARACTERS_QUERY) {
       setError("La búsqueda debe tener al menos tres caracteres");
       return;
     }

@@ -1,22 +1,20 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import debounce from "just-debounce-it";
-import { useMovies } from "./hooks/useMovies";
-import { useSearch } from "./hooks/useSearch";
+import { useSearch, useMovies } from "./hooks";
 import { Movies } from "./components/Movies";
 import "./App.css";
 
 function App() {
   const [sort, setSort] = useState(false);
   const { search, updateSearch, error } = useSearch();
-  const { movies, getMovies, loading } = useMovies({ search, sort });
-
-  // let counter = useRef(0); // Valor que persiste entre renders
-  // counter.current++;
-  // console.log(counter.current);
+  const { movies, getMovies, loading } = useMovies({
+    search,
+    sort,
+  });
 
   const debauncedGetMovies = useCallback(
-    debounce((search: string) => {
-      getMovies({ search });
+    debounce((search: string, error: null | string): void => {
+      getMovies({ search, error });
     }, 300),
     []
   );
@@ -27,16 +25,16 @@ function App() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    getMovies({ search });
+    getMovies({ search, error });
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newSearch = event.target.value;
     updateSearch(newSearch);
-    debauncedGetMovies(newSearch);
+    debauncedGetMovies(newSearch, error);
   };
 
-  useEffect(() => console.log("Hola from fetchdata"), [getMovies]);
+  // useEffect(() => console.log("Hola from fetchdata"), [getMovies]);
 
   return (
     <div className="page">
